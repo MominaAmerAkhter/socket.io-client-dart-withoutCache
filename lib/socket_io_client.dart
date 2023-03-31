@@ -25,7 +25,7 @@ export 'package:socket_io_client/src/darty.dart';
 // Protocol version
 final protocol = parser.protocol;
 
-final Map<String, dynamic> cache = {};
+// final Map<String, dynamic> cache = {};
 
 final Logger _logger = Logger('socket_io_client');
 
@@ -61,7 +61,7 @@ Socket _lookup(uri, opts) {
     _logger.fine('ignoring socket cache for $uri');
     io = Manager(uri: uri, options: opts);
   } else {
-    io = cache[id] ??= Manager(uri: uri, options: opts);
+    io = Manager(uri: uri, options: opts);
   }
   if (parsed.query.isNotEmpty && opts['query'] == null) {
     opts['query'] = parsed.query;
